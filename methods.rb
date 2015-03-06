@@ -81,6 +81,36 @@ def winner
   end
 end
 
+def reset_game
+  @player1[:score] = 0
+  @player1[:lives] = 3
+  @player2[:score] = 0
+  @player2[:lives] = 3
+end
+
+def newgame
+  loop do
+    puts "\nWould you like to play again? (y/n)".light_blue
+    decision = gets.chomp.downcase
+    case decision
+    when "yes"
+      return true
+    when "y"
+      return true
+    when "no"
+      puts "Goodbye!".magenta
+      return false
+    when "n"
+      puts "Goodbye!".magenta
+      return false
+    else
+      puts "Please say y or n"
+    end
+  end
+end
+
+      
+
 
 
 
