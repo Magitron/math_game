@@ -17,14 +17,15 @@ def game
       lose_life
       puts "Wap wap waaaaappp!\n ".red
       # puts "Current score:\n  Player 1: #{@player1_score}\n  Player 2: #{@player2_score}."
-      puts "Current lives:\n  Player 1: #{@player1_lives}\n  Player 2: #{@player2_lives}.\n ".yellow
+      puts "Current lives:\n  Player 1: #{@player1[:lives]}\n  Player 2: #{@player2[:lives]}.\n ".yellow
     end
     turn_switch
-    break if @player1_lives == 0 || @player2_lives == 0
+    break if @player1[:lives] == 0 || @player2[:lives] == 0
   end
   winner
-  puts "Game over! The winner is #{@winner}!".green
-  puts "Score:\n  Player 1: #{@player1_score}\n  Player 2: #{@player2_score}.".light_magenta
+  system "cowsay 'Game over'"
+  puts " "
+  puts "The winner is #{@winner}!\n Score:\n  Player 1: #{@player1[:score]}\n  Player 2: #{@player2[:score]}".light_magenta
 end
 
 game
