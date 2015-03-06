@@ -35,8 +35,16 @@ end
 def generate_question
   num1 = rand(1..10)
   num2 = rand(1..10)
-  @answer = num1 + num2
-  "#{@current_player[:name]}, what is #{num1} + #{num2}?"
+  syms = [:+, :-, :*, :/]
+  symbol = syms.sample
+  if symbol == :/
+    num3 = num1 * num2
+    @answer = num1
+    num1 = num3
+  else
+    @answer = num1.send(symbol, num2)
+  end
+  "#{@current_player[:name]}, what is #{num1} #{symbol} #{num2}?"
 end
 
 
